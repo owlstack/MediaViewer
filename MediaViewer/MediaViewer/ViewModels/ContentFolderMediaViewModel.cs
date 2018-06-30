@@ -43,24 +43,13 @@ namespace MediaViewer.ViewModels
             itemTappedCommand = new Command(OnItemTapped);
         }
 
-        public override void OnNavigatingTo(NavigationParameters navParams)
+        public override async void OnNavigatingTo(NavigationParameters navParams)
         {
             if(navParams.ContainsKey("query"))
             {
-                if((string)navParams["query"] == "Cats")
-                {
-                    DisplayCatImages();
-                }else if((string)navParams["query"] == "Cars")
-                {
-                    DisplayCarImages();
-                }
-                else if ((string)navParams["query"] == "Cities")
-                {
-                    DisplayCityImages();
-                }else 
-                {
-                    DisplayCloudImages();
-                }
+                var query = (string)navParams["query"];
+                await DisplayImages(query);
+             
             }
         }
 
@@ -70,28 +59,12 @@ namespace MediaViewer.ViewModels
             navParams.Add("id", sender);
             await NavigationService.NavigateAsync("ContentFolderMediaDetail", navParams);
         }
-
         
-        private async Task DisplayCatImages()
+        private async Task DisplayImages(string query)
         {
-            var imageObj = await _mediaService.GetCatImages();
+            var imageObj = await _mediaService.GetImages(query);
             Images = imageObj.Hits;
         }
-
-        private async Task DisplayCarImages()
-        {
-            var imageObj = await _mediaService.GetCarImages();
-            Images = imageObj.Hits;
-        }
-        private async Task DisplayCityImages()
-        {
-            var imageObj = await _mediaService.GetCityImages();
-            Images = imageObj.Hits;
-        }
-        private async Task DisplayCloudImages()
-        {
-            var imageObj = await _mediaService.GetCloudImages();
-            Images = imageObj.Hits;
-        }
+        
     }
 }

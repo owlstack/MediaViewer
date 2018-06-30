@@ -62,9 +62,8 @@ namespace MediaViewer.Services
         }
 
 
-        public async Task<Image> GetImage(string id)
+        public async Task<Image> GetImages(string query)
         {
-            string query = "";
             return await GetRequestAsync<Image>(_baseImageUrl + $"?key={_apiKey}&q={query}&image_type=photo");
         }
 
