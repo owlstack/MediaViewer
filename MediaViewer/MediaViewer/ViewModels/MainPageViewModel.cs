@@ -17,17 +17,46 @@ namespace MediaViewer.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
+        private readonly IMediaService _mediaService;
         private ICommand imageTapCommand;
         public ICommand ImageTapCommand
         {
             get { return imageTapCommand; }
         }
-        //    public DelegateCommand NavigateCommand => new DelegateCommand(Navigate);
-        public MainPageViewModel(INavigationService navigationService) : base (navigationService)
+
+        private int carsTotal;
+        public int CarsTotal
+        {
+            get { return carsTotal; }
+            set { SetProperty(ref carsTotal, value); }
+        }
+
+        private int catsTotal;
+        public int CatsTotal
+        {
+            get { return catsTotal; }
+            set { SetProperty(ref catsTotal, value); }
+        }
+
+        private int citiesTotal;
+        public int CitiesTotal
+        {
+            get { return citiesTotal; }
+            set { SetProperty(ref citiesTotal, value); }
+        }
+
+        private int cloudsTotal;
+        public int CloudsTotal
+        {
+            get { return cloudsTotal; }
+            set { SetProperty(ref cloudsTotal, value); }
+        }
+
+        public MainPageViewModel(INavigationService navigationService, IMediaService mediaService) : base (navigationService)
         {
             Title = "Content Folders";
             imageTapCommand = new Command(Navigate);
-            
+            _mediaService = mediaService;
         }
 
         private async void Navigate(object sender)
@@ -36,6 +65,19 @@ namespace MediaViewer.ViewModels
             navParams.Add("query", sender);
             await NavigationService.NavigateAsync("ContentFolderMedia", navParams);
         }
-        
+
+        public override async void OnNavigatingTo(NavigationParameters navParams)
+        {
+            var catsObj = await _mediaService.GetImages("Cats");
+            CatsTotal = catsObj.Total;
+            var carsObj = await _mediaService.GetImages("Cars");
+            CarsTotal = carsObj.Total;
+            var citiesObj = await _mediaService.GetImages("Cities");
+            CitiesTotal = citiesObj.Total;
+            var cloudsObj = await _mediaService.GetImages("Clouds");
+            CloudsTotal = cloudsObj.Total;
+        }
+
+
     }
 }

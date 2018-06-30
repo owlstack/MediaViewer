@@ -24,7 +24,7 @@
             </Image.GestureRecognizers>
         </Image>
         <Label Text="Cars" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
-        <Label Text="5" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+        <Label Text="{Binding CarsTotal}" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
 
         <Image Source="cats.jpg" Grid.Row="0" Grid.Column="1" Aspect="AspectFill">
             <Image.GestureRecognizers>
@@ -32,7 +32,7 @@
             </Image.GestureRecognizers>
         </Image>
         <Label Text="Cats" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
-        <Label Text="5" Grid.Row="2"  Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+        <Label Text="{Binding CatsTotal}" Grid.Row="2"  Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
         
         <Image Source="cities.jpg" Grid.Row="3" Grid.Column="0" Aspect="AspectFill">
             <Image.GestureRecognizers>
@@ -40,7 +40,7 @@
             </Image.GestureRecognizers>
         </Image>
         <Label Text="Cities" Grid.Row="4" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
-        <Label Text="5" Grid.Row="5" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+        <Label Text="{Binding CitiesTotal}" Grid.Row="5" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
         
         <Image Source="clouds.jpg" Grid.Row="3" Grid.Column="1" Aspect="AspectFill">
             <Image.GestureRecognizers>
@@ -48,7 +48,7 @@
             </Image.GestureRecognizers>
         </Image>
         <Label Text="Clouds" Grid.Row="4" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
-        <Label Text="5" Grid.Row="5" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+        <Label Text="{Binding CloudsTotal}" Grid.Row="5" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
         
     </Grid>
 
