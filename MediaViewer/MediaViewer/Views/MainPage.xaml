@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MediaViewer"
+             x:Class="MediaViewer.Views.MainPage"
+             Title="{Binding Title}">
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="cars.jpg" Grid.Row="0" Grid.Column="0" Aspect="AspectFill">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ImageTapCommand}" CommandParameter="Cars" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Text="Cars" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+        <Label Text="5" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+
+        <Image Source="cats.jpg" Grid.Row="0" Grid.Column="1" Aspect="AspectFill">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ImageTapCommand}" CommandParameter="Cats" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Text="Cats" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
+        <Label Text="5" Grid.Row="2"  Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+        
+        <Image Source="cities.jpg" Grid.Row="3" Grid.Column="0" Aspect="AspectFill">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ImageTapCommand}" CommandParameter="Cities" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Text="Cities" Grid.Row="4" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
+        <Label Text="5" Grid.Row="5" Grid.Column="0" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+        
+        <Image Source="clouds.jpg" Grid.Row="3" Grid.Column="1" Aspect="AspectFill">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ImageTapCommand}" CommandParameter="Clouds" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Label Text="Clouds" Grid.Row="4" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
+        <Label Text="5" Grid.Row="5" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+        
+    </Grid>
+
+</ContentPage>
