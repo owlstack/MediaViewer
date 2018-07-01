@@ -5,7 +5,7 @@
              x:Class="MediaViewer.Views.ContentFolderVideoDetail">
     <ContentPage.Content>
         <StackLayout>
-            <video:VideoPlayer Source="{Binding SelectedVideo}" />
+            <video:VideoPlayer Source="{Binding SelectedVideo}" AutoPlay="false" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
