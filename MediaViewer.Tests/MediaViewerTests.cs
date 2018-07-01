@@ -5,12 +5,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MediaViewer.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class MediaViewerTests
     {
       /*  [TestMethod]
         public async Task BasicImageTest()
         {
-            //  var client = new MediaViewer();
+              MediaViewer client = new MediaViewer();
             //var images = await GetCatImages();
             Assert.IsNotNull(images);
         }

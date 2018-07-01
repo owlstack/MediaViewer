@@ -18,13 +18,6 @@ namespace MediaViewer.ViewModels
     {
         private readonly IMediaService _mediaService;
        
-        private List<string> videos;
-        public List<string> Videos
-        {
-            get { return videos; }
-            set { SetProperty(ref videos, value); }
-        }
-        
         private List<ImageDescription> images;
         public List<ImageDescription> Images
         {

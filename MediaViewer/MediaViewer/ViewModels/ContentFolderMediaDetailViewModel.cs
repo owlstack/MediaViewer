@@ -18,14 +18,7 @@ namespace MediaViewer.ViewModels
             get { return selectedImage; }
             set { SetProperty(ref selectedImage, value); }
         }
-
-        private VideoObject selectedVideo;
-        public VideoObject SelectedVideo
-        {
-            get { return selectedVideo; }
-            set { SetProperty(ref selectedVideo, value); }
-        }
-
+        
         public ContentFolderMediaDetailViewModel(INavigationService navigationService, IMediaService mediaService) : base(navigationService)
         {
             _mediaService = mediaService;

@@ -36,6 +36,8 @@ namespace MediaViewer
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<ContentFolderMedia, ContentFolderMediaViewModel>();
             containerRegistry.RegisterForNavigation<ContentFolderMediaDetail, ContentFolderMediaDetailViewModel>();
+            containerRegistry.RegisterForNavigation<ContentFolderVideo, ContentFolderVideoViewModel>();
+            containerRegistry.RegisterForNavigation<ContentFolderVideoDetail, ContentFolderVideoDetailViewModel>();
             containerRegistry.Register<IMediaService, FetchMediaService>();
         }
     }

@@ -9,7 +9,8 @@ namespace MediaViewer.Interfaces
     public interface IMediaService
     {
         Task<Image> GetImages(string query);
-        Task<VideoObject> GetVideo(string query);
+        Task<VideoObject> GetVideos(string query);
+        Task<VideoObject> GetVideoStats(string query);
 
     }
 }

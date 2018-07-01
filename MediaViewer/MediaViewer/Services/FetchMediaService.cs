@@ -21,11 +21,15 @@ namespace MediaViewer.Services
             return await GetRequestAsync<Image>(_baseImageUrl + $"?key={_apiKey}&q={query}&image_type=photo");
         }
 
-        public async Task<VideoObject> GetVideo(string id)
+        public async Task<VideoObject> GetVideos(string query)
         {
-            string query = "";
             return await GetRequestAsync<VideoObject>(_baseVideoUrl + $"?key={_apiKey}&q={query}");
         }
         
+        public async Task<VideoObject> GetVideoStats(string query)
+        {
+            return await GetRequestAsync<VideoObject>(_baseVideoUrl + $"?key={_apiKey}&q={query}");
+        }
+
     }
 }

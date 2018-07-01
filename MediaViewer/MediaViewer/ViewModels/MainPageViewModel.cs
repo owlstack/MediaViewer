@@ -63,7 +63,14 @@ namespace MediaViewer.ViewModels
         {
             var navParams = new NavigationParameters();
             navParams.Add("query", sender);
-            await NavigationService.NavigateAsync("ContentFolderMedia", navParams);
+
+            if ((string)sender != "Clouds")
+            {
+                await NavigationService.NavigateAsync("ContentFolderMedia", navParams);
+            }else
+            {
+                await NavigationService.NavigateAsync("ContentFolderVideo", navParams);
+            }
         }
 
         public override async void OnNavigatingTo(NavigationParameters navParams)
@@ -74,10 +81,10 @@ namespace MediaViewer.ViewModels
             CarsTotal = carsObj.Total;
             var citiesObj = await _mediaService.GetImages("Cities");
             CitiesTotal = citiesObj.Total;
-            var cloudsObj = await _mediaService.GetImages("Clouds");
+            //   var cloudsObj = await _mediaService.GetImages("Clouds");
+            var cloudsObj = await _mediaService.GetVideoStats("Clouds");
             CloudsTotal = cloudsObj.Total;
         }
-
-
+        
     }
 }
