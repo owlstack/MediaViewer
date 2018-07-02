@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:video="clr-namespace:FormsVideoLibrary"
              x:Class="MediaViewer.Views.ContentFolderVideoDetail">
-    <ContentPage.Content>
-        <StackLayout>
-            <video:VideoPlayer Source="{Binding SelectedVideo}" AutoPlay="false" />
-        </StackLayout>
-    </ContentPage.Content>
+   
+            <video:VideoPlayer Source="{Binding SelectedVideo}" />
+  
 </ContentPage>
