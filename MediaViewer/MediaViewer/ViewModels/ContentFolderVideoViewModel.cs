@@ -65,13 +65,6 @@ namespace MediaViewer.ViewModels
         {
             var videoObj = await _mediaService.GetVideos(query);
             Videos = videoObj.Hits;
-            var size = "640x360";
-            var picIdList = videoObj.Hits.Select(x=>x.Picture_id).ToList();
-            
-            foreach (var pic in picIdList)
-            {
-                PictureId = $"https://i.vimeocdn.com/video/{pic}_{size}.jpg";
-            }
         }
 
     }

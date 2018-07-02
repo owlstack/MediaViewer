@@ -47,6 +47,7 @@ namespace MediaViewer.Models
         public string User { get; set; }
         [JsonProperty(PropertyName = "userImageURL")]
         public string UserImageURL { get; set; }
+        public string PictureUrl => $"https://i.vimeocdn.com/video/{Picture_id}_640x360.jpg";
     }
 
     public class Videos

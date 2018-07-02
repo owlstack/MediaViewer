@@ -9,7 +9,7 @@
 
         <flv:FlowListView.FlowColumnTemplate>
             <DataTemplate>
-                <Image Aspect="AspectFill" HeightRequest="200" Source="{Binding PictureId}" />
+                <Image Aspect="AspectFill" HeightRequest="200" Source="{Binding PictureUrl}" />
             </DataTemplate>
         </flv:FlowListView.FlowColumnTemplate>
 

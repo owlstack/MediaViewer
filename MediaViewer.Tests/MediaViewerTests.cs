@@ -7,12 +7,12 @@ namespace MediaViewer.Tests
     [TestClass]
     public class MediaViewerTests
     {
-      /*  [TestMethod]
+        [TestMethod]
         public async Task BasicImageTest()
         {
-              MediaViewer client = new MediaViewer();
-            //var images = await GetCatImages();
-            Assert.IsNotNull(images);
+            //  MediaViewer client = new MediaViewer();
+            //var images = await GetImages();
+           // Assert.IsNotNull(images);
         }
 
         [TestMethod]
@@ -20,7 +20,7 @@ namespace MediaViewer.Tests
         {
           //  var client = new PixabaySharpClient(Utility.ApiCredentials.ApiKey);
            // var videos = await client.SearchVideosAsync("dog");
-            Assert.IsNotNull(videos);
-        } */
+          //  Assert.IsNotNull(videos);
+        } 
     }
 }
