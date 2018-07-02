@@ -25,13 +25,13 @@ namespace MediaViewer.ViewModels
             _mediaService = mediaService;
         }
 
-        public override void OnNavigatedTo(NavigationParameters navParams)
+        public override void OnNavigatingTo(NavigationParameters navParams)
         {
             if (navParams.ContainsKey("id"))
             {
                 var videoObj = navParams.GetValue<Hit>("id");
                 SelectedVideo = videoObj.Videos.Medium.Url;
-
+                
             }
         }
     }
