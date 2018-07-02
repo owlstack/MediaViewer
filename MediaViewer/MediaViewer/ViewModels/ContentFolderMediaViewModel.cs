@@ -30,22 +30,34 @@ namespace MediaViewer.ViewModels
             get { return itemTappedCommand; }
         }
 
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set { SetProperty(ref isBusy, value); }
+        }
+
         public ContentFolderMediaViewModel(INavigationService navigationService, IMediaService mediaService) : base(navigationService)
         {
             _mediaService = mediaService;
             itemTappedCommand = new Command(OnItemTapped);
         }
 
+        //Before the view finishes loading, call display images. 
         public override async void OnNavigatingTo(NavigationParameters navParams)
         {
             if(navParams.ContainsKey("query"))
             {
                 var query = (string)navParams["query"];
+                IsBusy = true;
                 await DisplayImages(query);
-             
+                IsBusy = false;
+               
             }
         }
 
+        //When selecting an image thumbnail, get the sender info and save it in NavigationParameters.
+        //Then navigate to next page
         private async void OnItemTapped(object sender)
         {
             var navParams = new NavigationParameters();
@@ -53,11 +65,11 @@ namespace MediaViewer.ViewModels
             await NavigationService.NavigateAsync("ContentFolderMediaDetail", navParams);
         }
         
+        //Displays image thumbnails from api endpoint
         private async Task DisplayImages(string query)
         {
             var imageObj = await _mediaService.GetImages(query);
             Images = imageObj.Hits;
         }
-        
     }
 }

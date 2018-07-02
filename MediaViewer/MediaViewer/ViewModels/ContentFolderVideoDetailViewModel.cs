@@ -25,12 +25,14 @@ namespace MediaViewer.ViewModels
             _mediaService = mediaService;
         }
 
+        //Get video object that was saved from previous view and set page SelectedVideo to video (medium size) url. 
         public override void OnNavigatingTo(NavigationParameters navParams)
         {
             if (navParams.ContainsKey("id"))
             {
                 var videoObj = navParams.GetValue<Hit>("id");
-                SelectedVideo = videoObj.Videos.Medium.Url;
+                //   SelectedVideo = videoObj.Videos.Medium.Url;
+                SelectedVideo = "https://storage.googleapis.com/coverr-main/mp4/Coconut-Grove.mp4";
                 
             }
         }

@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Octane.Xamarin.Forms.VideoPlayer.iOS;
 using Prism;
 using Prism.Ioc;
 using UIKit;
@@ -22,6 +23,7 @@ namespace MediaViewer.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            FormsVideoPlayer.Init();
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);

@@ -59,11 +59,13 @@ namespace MediaViewer.ViewModels
             _mediaService = mediaService;
         }
 
+        //When navigating to the next page, save the name of what element was clicked and pass it to the other page
         private async void Navigate(object sender)
         {
             var navParams = new NavigationParameters();
             navParams.Add("query", sender);
-
+            //If element was anything other than clouds, send them to the images preview page.
+            //If element is cloud, then send to over to video previews page. 
             if ((string)sender != "Clouds")
             {
                 await NavigationService.NavigateAsync("ContentFolderMedia", navParams);
@@ -73,6 +75,7 @@ namespace MediaViewer.ViewModels
             }
         }
 
+        //Set the total images found count from the api endpoint. 
         public override async void OnNavigatingTo(NavigationParameters navParams)
         {
             var catsObj = await _mediaService.GetImages("Cats");

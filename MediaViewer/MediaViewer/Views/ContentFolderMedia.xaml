@@ -3,16 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              x:Class="MediaViewer.Views.ContentFolderMedia">
-    
-    <flv:FlowListView FlowColumnCount="2" SeparatorVisibility="None" HasUnevenRows="true"
+    <Grid>
+        <flv:FlowListView FlowColumnCount="2" SeparatorVisibility="None" HasUnevenRows="true"
 	        FlowItemTappedCommand="{Binding ItemTappedCommand}" FlowLastTappedItem="{Binding LastTappedItem}"
 	        FlowItemsSource="{Binding Images}" >
 
-        <flv:FlowListView.FlowColumnTemplate>
-            <DataTemplate>
-                <Image Aspect="AspectFill" HeightRequest="200" Source="{Binding WebformatUrl}" />
-            </DataTemplate>
-        </flv:FlowListView.FlowColumnTemplate>
+            <flv:FlowListView.FlowColumnTemplate>
+                <DataTemplate>
+                    <Image Aspect="AspectFill" HeightRequest="200" Source="{Binding WebformatUrl}" />
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
 
-    </flv:FlowListView>
+        </flv:FlowListView>
+        <ActivityIndicator IsRunning="{Binding IsBusy}"
+                             IsVisible="{Binding IsBusy}"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"/>
+    </Grid>
 </ContentPage>

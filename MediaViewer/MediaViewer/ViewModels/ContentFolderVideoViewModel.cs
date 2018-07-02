@@ -41,6 +41,7 @@ namespace MediaViewer.ViewModels
             itemTappedCommand = new Command(OnItemTapped);
         }
 
+        //before the view loads, start to display video image thumbnails 
         public override async void OnNavigatingTo(NavigationParameters navParams)
         {
             if (navParams.ContainsKey("query"))
@@ -51,6 +52,7 @@ namespace MediaViewer.ViewModels
             }
         }
 
+        //On clicking on a video thumbnail image, save the object in NavigationParamters and navigate to detail page
         private async void OnItemTapped(object sender)
         {
             var navParams = new NavigationParameters();
@@ -58,13 +60,14 @@ namespace MediaViewer.ViewModels
             await NavigationService.NavigateAsync("ContentFolderVideoDetail", navParams);
         }
 
+        //display video image thumbnails from api endpoint 
         private async Task DisplayVideos(string query)
         {
             var videoObj = await _mediaService.GetVideos(query);
             Videos = videoObj.Hits;
             var size = "640x360";
             var picIdList = videoObj.Hits.Select(x=>x.Picture_id).ToList();
-
+            
             foreach (var pic in picIdList)
             {
                 PictureId = $"https://i.vimeocdn.com/video/{pic}_{size}.jpg";
