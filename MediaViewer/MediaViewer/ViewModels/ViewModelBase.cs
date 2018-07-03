@@ -18,6 +18,14 @@ namespace MediaViewer.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set { SetProperty(ref isBusy, value); }
+        }
+
+
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;

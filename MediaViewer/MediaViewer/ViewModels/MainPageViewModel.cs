@@ -78,6 +78,7 @@ namespace MediaViewer.ViewModels
         //Set the total images found count from the api endpoint. 
         public override async void OnNavigatingTo(NavigationParameters navParams)
         {
+            IsBusy = true;
             var catsObj = await _mediaService.GetImages("Cats");
             CatsTotal = catsObj.Total;
             var carsObj = await _mediaService.GetImages("Cars");
@@ -87,6 +88,7 @@ namespace MediaViewer.ViewModels
             //   var cloudsObj = await _mediaService.GetImages("Clouds");
             var cloudsObj = await _mediaService.GetVideoStats("Clouds");
             CloudsTotal = cloudsObj.Total;
+            IsBusy = false;
         }
         
     }

@@ -47,7 +47,9 @@ namespace MediaViewer.ViewModels
             if (navParams.ContainsKey("query"))
             {
                 var query = (string)navParams["query"];
+                IsBusy = true;
                 await DisplayVideos(query);
+                IsBusy = false;
 
             }
         }

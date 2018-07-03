@@ -29,14 +29,7 @@ namespace MediaViewer.ViewModels
         {
             get { return itemTappedCommand; }
         }
-
-        private bool isBusy;
-        public bool IsBusy
-        {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
-        }
-
+        
         public ContentFolderMediaViewModel(INavigationService navigationService, IMediaService mediaService) : base(navigationService)
         {
             _mediaService = mediaService;

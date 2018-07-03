@@ -49,7 +49,10 @@
         </Image>
         <Label Text="Clouds" Grid.Row="4" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
         <Label Text="{Binding CloudsTotal}" Grid.Row="5" Grid.Column="1" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
-        
+        <ActivityIndicator IsRunning="{Binding IsBusy}"
+                             IsVisible="{Binding IsBusy}"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"/>
     </Grid>
 
 </ContentPage>
