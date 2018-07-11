@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MediaViewer.Interfaces;
 using Prism.Navigation;
-using MediaViewer.Interfaces;
-using MediaViewer.Models;
 using static MediaViewer.Models.Image;
 
 namespace MediaViewer.ViewModels

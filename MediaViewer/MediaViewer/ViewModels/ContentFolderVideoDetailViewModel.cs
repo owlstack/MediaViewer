@@ -1,16 +1,10 @@
 ﻿using MediaViewer.Interfaces;
 using MediaViewer.Models;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
 
 namespace MediaViewer.ViewModels
 {
-	public class ContentFolderVideoDetailViewModel : ViewModelBase
+    public class ContentFolderVideoDetailViewModel : ViewModelBase
 	{
         private readonly IMediaService _mediaService;
 
@@ -20,6 +14,7 @@ namespace MediaViewer.ViewModels
             get { return selectedVideo; }
             set { SetProperty(ref selectedVideo, value); }
         }
+
         public ContentFolderVideoDetailViewModel (INavigationService navigationService, IMediaService mediaService) : base(navigationService)
 		{
             _mediaService = mediaService;

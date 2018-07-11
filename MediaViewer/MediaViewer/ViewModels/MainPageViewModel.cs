@@ -1,28 +1,16 @@
-﻿using MediaViewer.Interfaces;
-using Prism.Commands;
-using Prism.Mvvm;
+﻿using System.Windows.Input;
+using MediaViewer.Interfaces;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using MediaViewer.Models;
 using Xamarin.Forms;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using System.Windows.Input;
 
 namespace MediaViewer.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
         private readonly IMediaService _mediaService;
-        private ICommand imageTapCommand;
-        public ICommand ImageTapCommand
-        {
-            get { return imageTapCommand; }
-        }
+
+        private ICommand _imageTapCommand;
+        public ICommand ImageTapCommand => _imageTapCommand ?? (_imageTapCommand = new Command(Navigate));
 
         private int carsTotal;
         public int CarsTotal
@@ -55,7 +43,6 @@ namespace MediaViewer.ViewModels
         public MainPageViewModel(INavigationService navigationService, IMediaService mediaService) : base (navigationService)
         {
             Title = "Content Folders";
-            imageTapCommand = new Command(Navigate);
             _mediaService = mediaService;
         }
 

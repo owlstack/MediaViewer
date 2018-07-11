@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Prism.Navigation;
-using MediaViewer.Interfaces;
-using MediaViewer.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Linq;
-using static MediaViewer.Models.Image;
 using System.Windows.Input;
-using Prism.Commands;
+using MediaViewer.Interfaces;
+using Prism.Navigation;
 using Xamarin.Forms;
+using static MediaViewer.Models.Image;
 
 namespace MediaViewer.ViewModels
 {
@@ -24,16 +18,13 @@ namespace MediaViewer.ViewModels
             get { return images; }
             set { SetProperty(ref images, value); }
         }
-        private ICommand itemTappedCommand;
-        public ICommand ItemTappedCommand
-        {
-            get { return itemTappedCommand; }
-        }
-        
+
+        private ICommand _itemTappedCommand;
+        public ICommand ItemTappedCommand => _itemTappedCommand ?? (_itemTappedCommand = new Command(OnItemTapped));
+
         public ContentFolderMediaViewModel(INavigationService navigationService, IMediaService mediaService) : base(navigationService)
         {
             _mediaService = mediaService;
-            itemTappedCommand = new Command(OnItemTapped);
         }
 
         //Before the view finishes loading, call display images. 
@@ -45,7 +36,6 @@ namespace MediaViewer.ViewModels
                 IsBusy = true;
                 await DisplayImages(query);
                 IsBusy = false;
-               
             }
         }
 

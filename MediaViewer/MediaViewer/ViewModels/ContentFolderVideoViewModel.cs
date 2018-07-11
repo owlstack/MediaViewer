@@ -1,17 +1,14 @@
-﻿using MediaViewer.Interfaces;
-using MediaViewer.Models;
-using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MediaViewer.Interfaces;
+using MediaViewer.Models;
+using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace MediaViewer.ViewModels
 {
-	public class ContentFolderVideoViewModel : ViewModelBase
+    public class ContentFolderVideoViewModel : ViewModelBase
 	{
         private readonly IMediaService _mediaService;
 
@@ -29,16 +26,12 @@ namespace MediaViewer.ViewModels
             set { SetProperty(ref pictureId, value); }
         }
 
-        private ICommand itemTappedCommand;
-        public ICommand ItemTappedCommand
-        {
-            get { return itemTappedCommand; }
-        }
+        private ICommand _itemTappedCommand;
+        public ICommand ItemTappedCommand => _itemTappedCommand ?? (_itemTappedCommand = new Command(OnItemTapped));
 
         public ContentFolderVideoViewModel(INavigationService navigationService, IMediaService mediaService) : base(navigationService)
 		{
             _mediaService = mediaService;
-            itemTappedCommand = new Command(OnItemTapped);
         }
 
         //before the view loads, start to display video image thumbnails 
