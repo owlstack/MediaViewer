@@ -12,7 +12,7 @@ jobs:
   pool:
     vmImage: 'macOS-10.13'
   variables:
-    buildConfiguration: 'Release'
+    buildConfiguration: 'Debug'
   steps:
   - task: NuGetToolInstaller@0
   - task: NuGetCommand@2
